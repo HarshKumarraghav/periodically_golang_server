@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"log"
 	"math/rand"
 	"net/http"
 	"os"
@@ -11,6 +12,7 @@ import (
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 type Elements struct {
@@ -95,7 +97,10 @@ func randomElement(c *gin.Context) {
 	c.JSON(http.StatusOK, element[rand.Intn(max-min)+min])
 }
 func main() {
-
+	er := godotenv.Load()
+	if er != nil {
+		log.Fatal("Error loading .env file")
+	}
 	file, err := os.ReadFile("element.json")
 	if err != nil {
 		panic("data not found!")
