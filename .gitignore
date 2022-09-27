@@ -1,6 +1,5 @@
 # Binaries for programs and plugins
 *.exe
-*.env
 *.exe~
 *.dll
 *.so

@@ -96,6 +96,7 @@ func randomElement(c *gin.Context) {
 	max := 119
 	c.JSON(http.StatusOK, element[rand.Intn(max-min)+min])
 }
+
 func main() {
 	er := godotenv.Load()
 	if er != nil {
